@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Calendar API Quickstart</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
+    <link href="styles.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Alarm Clock Auto</h1>
+      <button id="authorize_button" style="display: none;" onclick="handleAuthClick()">Authorize</button>
+      <button id="signout_button" style="display: none;" onclick="handleSignoutClick()">Sign Out</button>
+      <div id="body" style="display: none">
+        <form id="settings">
+          <h2>Settings</h2>
+          <label for="time_offset">Time Offset (from UTC time)</label>
+          <input id="time_offset" type="number">
+          <br>
+          <label for="min_time">Earliest Alarm Time</label>
+          <input id="min_time" type="number">
+          <br>
+          <label for="max_time">Latest Alarm Time</label>
+          <input id="max_time" type="number">
+          <br>
+          <label for="alarm_offset">Time Allocation for Getting Ready (Minutes)</label>
+          <input id="alarm_offset" type="number">
+          <br>
+          <button type="button" onclick="submitSettings()">Update Settings</button>
+        </form>
+        <h2>Authorized Calendars</h2>
+        <form id="calendars"></form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+  </body>
+</html>
